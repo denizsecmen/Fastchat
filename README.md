@@ -2,7 +2,7 @@
 ## Reason to develop
 I developed this project for learning basics of MongoDB program and socket.io library in Node.js.
 ## Abiltiy of application
-- Can ability send text data to server and storage text data at server(All documents will be removed when the collection reach 100 document).
+- Can ability send text data to server and storage text data at server(All documents will be removed when the collection reach 100 documents).
 - Display all update text data each refresh.
 ## Tools used at project
 - Database
