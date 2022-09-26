@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="../Style/stayle.css">
+    <link rel="icon" href="../Style/6.png">
+    <title>Fastchat</title>
+  </head>
+  <body>
+    <script src="/socket.io/socket.io.js">
+    </script>
+    <script>
+      var socket=io();
+      function run()
+      {
+      var data=document.getElementById('src');
+      socket.emit('clicked',data.value);
+      }
+      socket.on('clicked',function(msg){
+        document.getElementById("screen").innerHTML=msg;
+      });
+    </script>
+    <div id="search">
+        <input type="text" id="src" placeholder="Enter your message">
+        <input type="button" class="btn btn-primary" id="snd" onclick="run()" value="Send">
+        <input type="button" class="btn btn-secondary" id="res" onclick="document.getElementById('src').value='';" value="Reset">
+    </div>
+    <div id="screen">
+      <%for(var i=JSON.parse(data).length-1;i>-1;i--){%>
+        <div class="chatlog"><span style="color:blue"><%=JSON.parse(data)[i]._id%>:</span><%=JSON.parse(data)[i].chat%></div>
+      <%}%> 
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </body>
+</html>
