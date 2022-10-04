@@ -1,5 +1,5 @@
 # Fastchat
-!Before the use add collction to your mongo.db collection called chats.
+!Before the use add collection to your mongo.db collection called chats.
 ## Reason to develop
 I developed this project for learning basics of MongoDB program and socket.io library in Node.js.
 ## Abiltiy of application
